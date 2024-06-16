@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+    {% block content %}
+
+
+    {% for project in project_list %}
+        {% if project.special_client == "special" %}
+            <h1>
+                {{ project.name }}
+            </h1>
+        {% else %}    
+            <p>
+                {{ project.name }}
+            </p>
+        {% endif %}    
+    <p>
+        {{ project.customer }}
+    </p>
+    <p>
+        {{ project.date_added }}
+    </p>
+    {% endfor %}
+
+
+    {%endblock%}

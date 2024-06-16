@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+    {% block content %}
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            background-color: #fdfdfd;
+        }
+        
+        .head_text {
+            color: white;
+        }
+        
+        .card {
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+    </style>
+    
+    <header class="masthead">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class=" col-md-8 col-md-10 mx-auto">
+                    <div class="site-heading  center-me">
+                        <h1> {{ title }}  Welcome {{ sitevisitor }}! </h1>
+                        {% if logged_in %}
+                            <h2>To manage items in your portfolio, visit the portfolio administration page at the link below.</h2>
+                            <h3 class="text-light">
+                            <a href="{% url 'admin:login' %}" >Portfolio Administration</a>
+                            </h3>
+                        {% else %}
+                            <h2>To proceed, please log in at the link below.</h2>
+                            <h3 class="text-light">
+                            <a href="{% url 'admin:login' %}" >Log me in!</a>
+                            </h3>
+                        {% endif %}
+                      <p> {{ content_1|safe }}  </p>
+                      <!-- <h3 class=" site-heading my-4 mt-3 text-white"> Welcome to my awesome Blog </h3>
+                        <p class="text-light">We Love Django As much as you do..! &nbsp
+                        </p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {%endblock%}
